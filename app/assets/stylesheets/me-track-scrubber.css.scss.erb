@@ -1,0 +1,65 @@
+.mejs-controls .mejs-add-to-playlist button {
+  background: transparent url(<%= image_path 'add_to_playlist_icon.svg' %>) no-repeat;
+  background-size: 23pt !important;
+  background-position: 50%;
+  padding: 1pt;
+}
+
+.add_to_playlist_alert {
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  padding: 5pt !important;
+  max-width: 870px;
+  border-top-right-radius: 0pt;
+  border-top-left-radius: 0pt;   
+}
+
+.add_to_playlist_alert_error {
+  border-bottom-right-radius: 0pt;
+  border-bottom-left-radius: 0pt;
+  margin-bottom: 0pt;
+}
+
+.add_to_playlist_alert_close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: 0 1px 0 white;
+  opacity: 0.2;
+}
+
+.add_to_playlist {
+  max-width: 870px;
+  background: #696667;
+  color: white;
+  padding: 0pt 10pt 10pt 10pt;
+  border: 1pt solid #353536;
+  border-bottom-right-radius: 6pt;
+  border-bottom-left-radius: 6pt;
+
+  table {
+    width: 100%;
+  }
+
+  th, td {
+    padding: 4pt;
+    text-align: right;
+  }
+
+  td {
+    padding-right: 5pt;
+  }
+
+  select, input, textarea{
+    width: 100%;
+    color: black;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+}
