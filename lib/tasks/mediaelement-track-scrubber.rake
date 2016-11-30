@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :media_element_add_to_playlist do
+# task :mediaelement-track-scrubber do
 #   # Task goes here
 # end

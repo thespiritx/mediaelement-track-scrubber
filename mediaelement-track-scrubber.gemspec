@@ -1,15 +1,15 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "media_element_track_scrubber/version"
+require "mediaelement-track-scrubber/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "media_element_track_scrubber"
+  s.name        = "mediaelement-track-scrubber"
   s.version     = MediaElementTrackScrubber::VERSION
   s.authors     = ["Leah Lee"]
   s.email       = ["lmb@iu.edu"]
-  s.homepage    = "https://github.com/avalonmediasystem/media-element-track-scrubber"
+  s.homepage    = "https://github.com/avalonmediasystem/mediaelement-track-scrubber"
   s.summary     = "Add an additional scrubber for tracks."
   s.description = "Add an additional scrubber for tracks."
 
