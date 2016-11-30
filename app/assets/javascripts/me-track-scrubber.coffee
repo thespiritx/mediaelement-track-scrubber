@@ -23,6 +23,7 @@
       this.trackdata['trackduration'] = trackduration
       $duration = $('.track-mejs-duration')
       $duration.text(mejs.Utility.secondsToTimeCode(trackduration, false))
+      $('#track_scrubber').css('visibility','visible')
 
     updateTrackScrubber: ->
       trackoffset = this.getCurrentTime() - this.trackdata['starttime']
