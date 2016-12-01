@@ -27,7 +27,7 @@
 
     updateTrackScrubber: ->
       trackoffset = this.getCurrentTime() - this.trackdata['starttime']
-      trackpercent = 100 * trackoffset / this.trackdata['trackduration']
+      trackpercent = Math.min(100, Math.max(0,(100 * trackoffset / this.trackdata['trackduration'])))
       $('.track-mejs-time-current').width(Math.round(trackpercent)+'%')
       $('.track-mejs-currenttime').text(mejs.Utility.secondsToTimeCode(trackoffset, false))
 
