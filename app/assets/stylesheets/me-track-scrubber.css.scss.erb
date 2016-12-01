@@ -1,4 +1,18 @@
-  .track_scrubber {
+.mejs-controls .mejs-track-scrubber button{
+  background-size: 23pt !important;
+  background-position: 50% !important;
+  padding: 1pt;
+}
+
+.mejs-controls .mejs-track-scrubber.show button {
+  background: transparent url(<%= image_path 'track_scrubber_show_icon.svg' %>) no-repeat;
+}
+
+.mejs-controls .mejs-track-scrubber.hide button {
+  background: transparent url(<%= image_path 'track_scrubber_hide_icon.svg' %>) no-repeat;
+}
+
+.track_scrubber {
     max-width: 870px;
     background: #696667;
     color: white;
