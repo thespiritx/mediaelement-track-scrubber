@@ -37,6 +37,16 @@
       $duration = $('.track-mejs-duration')
       $duration.text(mejs.Utility.secondsToTimeCode(trackduration, false))
 
+      start_percent = Math.round(100*trackstart / duration)
+      end_percent = Math.round(100*trackend / duration)
+      clip_span = $('<span />').addClass('mejs-time-clip')
+      trackbubble = $('<span class="mejs-time-clip">')
+      trackbubble.css 'left', start_percent+'%'
+      trackbubble.css 'width', end_percent-start_percent+'%'
+      $('.mejs-time-clip').remove()
+      unless start_percent==0 and end_percent==100
+        $('.mejs-time-total').append trackbubble
+
       t = this
       total = $('.track-mejs-time-total')
       current = $('.track-mejs-time-current')
