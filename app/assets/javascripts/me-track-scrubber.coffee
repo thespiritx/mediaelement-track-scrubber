@@ -6,15 +6,20 @@
   $.extend MediaElementPlayer::,
     buildtrackScrubber: (player, controls, layers, media) ->
       return unless player.options.trackScrubberEnabled
-      button = $("<div class='mejs-button mejs-track-scrubber show'>
+      button = $("<div class='mejs-button mejs-track-scrubber track-scrubber-hide'>
                     <button type='button' aria-controls='mep_0' title='Toggle Track Scrubber' aria-label='Toggle Track Scrubber'/>
                   </div>")
       button.appendTo(controls)
       button.click (event) ->
         player.showTrackScrubber($('#track_scrubber').css('visibility')=='hidden')
-        $('mejs-controls mejs-track-scrubber').toggleClass('hide').toggleClass('show')
 
     showTrackScrubber: (show = true) ->
+      if show
+        $('.mejs-controls .mejs-track-scrubber').addClass('track-scrubber-hide')
+        $('.mejs-controls .mejs-track-scrubber').removeClass('track-scrubber-show')
+      else
+        $('.mejs-controls .mejs-track-scrubber').addClass('track-scrubber-show')
+        $('.mejs-controls .mejs-track-scrubber').removeClass('track-scrubber-hide')
       $('#track_scrubber').css('visibility', if show then 'visible' else 'hidden')
 
     updateTrackScrubber: ->
