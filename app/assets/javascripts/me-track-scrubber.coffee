@@ -18,6 +18,7 @@
         $('.mejs-controls .mejs-track-scrubber').addClass('track-scrubber-hide')
         $('.mejs-controls .mejs-track-scrubber').removeClass('track-scrubber-show')
         $('#track_scrubber').css('display','block')
+        this.resizeTrackScrubber()
       else
         $('.mejs-controls .mejs-track-scrubber').addClass('track-scrubber-show')
         $('.mejs-controls .mejs-track-scrubber').removeClass('track-scrubber-hide')
@@ -28,6 +29,14 @@
       trackpercent = Math.min(100, Math.max(0,(100 * trackoffset / this.trackdata['trackduration'])))
       $('.track-mejs-time-current').width(Math.round(trackpercent)+'%')
       $('.track-mejs-currenttime').text(mejs.Utility.secondsToTimeCode(trackoffset, false))
+
+    resizeTrackScrubber: ->
+      timeWidth = $('.track-mejs-currenttime-container').outerWidth()
+      durationWidth = $('.track-mejs-duration-container').outerWidth()
+      railWidth = this.controls.width() - timeWidth - durationWidth - 5
+      $('.track-mejs-time-rail').width(railWidth)
+      total = $('.track-mejs-time-total')
+      total.width(railWidth - (total.outerWidth(true) - total.width()))
 
     initializeTrackScrubber: (trackstart, trackend, stream_info) ->
       return unless stream_info.hasOwnProperty('t') and this.options.trackScrubberEnabled
@@ -52,7 +61,6 @@
       $('.mejs-time-clip').remove()
       unless start_percent==0 and end_percent==100
         $('.mejs-time-total').append trackbubble
-
       t = this
       total = $('.track-mejs-time-total')
       current = $('.track-mejs-time-current')
