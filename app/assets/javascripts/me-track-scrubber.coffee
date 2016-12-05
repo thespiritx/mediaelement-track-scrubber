@@ -11,16 +11,17 @@
                   </div>")
       button.appendTo(controls)
       button.click (event) ->
-        player.showTrackScrubber($('#track_scrubber').css('visibility')=='hidden')
+        player.showTrackScrubber($('#track_scrubber').css('display')=='none')
 
     showTrackScrubber: (show = true) ->
       if show
         $('.mejs-controls .mejs-track-scrubber').addClass('track-scrubber-hide')
         $('.mejs-controls .mejs-track-scrubber').removeClass('track-scrubber-show')
+        $('#track_scrubber').css('display','block')
       else
         $('.mejs-controls .mejs-track-scrubber').addClass('track-scrubber-show')
         $('.mejs-controls .mejs-track-scrubber').removeClass('track-scrubber-hide')
-      $('#track_scrubber').css('visibility', if show then 'visible' else 'hidden')
+        $('#track_scrubber').css('display','none')
 
     updateTrackScrubber: ->
       trackoffset = this.getCurrentTime() - this.trackdata['starttime']
@@ -40,7 +41,7 @@
       this.trackdata['duration'] = duration
       this.trackdata['trackduration'] = trackduration
       $duration = $('.track-mejs-duration')
-      $duration.text(mejs.Utility.secondsToTimeCode(trackduration, false))
+      $duration.text(mejs.Utility.secondsToTimeCode(parseInt(trackduration), false))
 
       start_percent = Math.round(100*trackstart / duration)
       end_percent = Math.round(100*trackend / duration)
