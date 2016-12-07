@@ -41,6 +41,6 @@ This project rocks and uses MIT-LICENSE.
               @player.initializeTrackScrubber(trackstart, trackend, @stream_info)```
 
 * In app/views/media_objects/_item_view.html.erb ,
-   Line 56: ```<%= render file: '_track_scrubber.html.erb' if current_user.present? %>```
+   Line 56: ```<%= render file: '_track_scrubber.html.erb'%>```
 
    Line 93: ```displayTrackScrubber: true,```
