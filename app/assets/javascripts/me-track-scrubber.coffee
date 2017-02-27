@@ -43,7 +43,7 @@
       duration = stream_info.duration
       trackduration = trackend - trackstart
       $currentTime = $('.track-mejs-currenttime')
-      $currentTime.text(mejs.Utility.secondsToTimeCode(this.getCurrentTime()-trackstart, false))
+      $currentTime.text(mejs.Utility.secondsToTimeCode(Math.max(0,this.getCurrentTime()-trackstart), false))
       this.trackdata = {}
       this.trackdata['starttime'] = trackstart
       this.trackdata['endtime'] = trackend
@@ -52,8 +52,8 @@
       $duration = $('.track-mejs-duration')
       $duration.text(mejs.Utility.secondsToTimeCode(parseInt(trackduration), false))
 
-      start_percent = Math.round(100*trackstart / duration)
-      end_percent = Math.round(100*trackend / duration)
+      start_percent = Math.max(0,Math.min(100,Math.round(100*trackstart / duration)))
+      end_percent = Math.max(0,Math.min(100,Math.round(100*trackend / duration)))
       clip_span = $('<span />').addClass('mejs-time-clip')
       trackbubble = $('<span class="mejs-time-clip">')
       trackbubble.css 'left', start_percent+'%'
