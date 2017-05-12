@@ -6,7 +6,7 @@
   $.extend MediaElementPlayer::,
     buildtrackScrubber: (player, controls, layers, media) ->
       return unless player.options.trackScrubberEnabled
-      button = $("<div class='mejs-button mejs-track-scrubber track-scrubber-show'>
+      button = $("<div class='mejs__button mejs__track-scrubber track-scrubber-show'>
                     <button type='button' aria-controls='mep_0' title='Toggle Track Scrubber' aria-label='Toggle Track Scrubber'/>
                   </div>")
       button.appendTo(controls)
@@ -15,59 +15,59 @@
 
     showTrackScrubber: (show = true) ->
       if show
-        $('.mejs-controls .mejs-track-scrubber').addClass('track-scrubber-hide')
-        $('.mejs-controls .mejs-track-scrubber').removeClass('track-scrubber-show')
+        $('.mejs__controls .mejs__track-scrubber').addClass('track-scrubber-hide')
+        $('.mejs__controls .mejs__track-scrubber').removeClass('track-scrubber-show')
         $('#track_scrubber').css('display','block')
         this.resizeTrackScrubber()
       else
-        $('.mejs-controls .mejs-track-scrubber').addClass('track-scrubber-show')
-        $('.mejs-controls .mejs-track-scrubber').removeClass('track-scrubber-hide')
+        $('.mejs__controls .mejs__track-scrubber').addClass('track-scrubber-show')
+        $('.mejs__controls .mejs__track-scrubber').removeClass('track-scrubber-hide')
         $('#track_scrubber').css('display','none')
 
     updateTrackScrubber: ->
       trackoffset = this.getCurrentTime() - this.trackdata['starttime']
       trackpercent = Math.min(100, Math.max(0,(100 * trackoffset / this.trackdata['trackduration'])))
-      $('.track-mejs-time-current').width(Math.round(trackpercent)+'%')
-      $('.track-mejs-currenttime').text(mejs.Utility.secondsToTimeCode(trackoffset, false))
+      $('.track-mejs__time-current').width(Math.round(trackpercent)+'%')
+      $('.track-mejs__currenttime').text(mejs.Utility.secondsToTimeCode(trackoffset, false))
 
     resizeTrackScrubber: ->
-      timeWidth = $('.track-mejs-currenttime-container').outerWidth()
-      durationWidth = $('.track-mejs-duration-container').outerWidth()
+      timeWidth = $('.track-mejs__currenttime-container').outerWidth()
+      durationWidth = $('.track-mejs__duration-container').outerWidth()
       railWidth = this.controls.width() - timeWidth - durationWidth - 5
-      $('.track-mejs-time-rail').width(railWidth)
-      total = $('.track-mejs-time-total')
+      $('.track-mejs__time-rail').width(railWidth)
+      total = $('.track-mejs__time-total')
       total.width(railWidth - (total.outerWidth(true) - total.width()))
 
     initializeTrackScrubber: (trackstart, trackend, stream_info) ->
       return unless stream_info.hasOwnProperty('t') and this.options.trackScrubberEnabled
       duration = stream_info.duration
       trackduration = trackend - trackstart
-      $currentTime = $('.track-mejs-currenttime')
+      $currentTime = $('.track-mejs__currenttime')
       $currentTime.text(mejs.Utility.secondsToTimeCode(Math.max(0,this.getCurrentTime()-trackstart), false))
       this.trackdata = {}
       this.trackdata['starttime'] = trackstart
       this.trackdata['endtime'] = trackend
       this.trackdata['duration'] = duration
       this.trackdata['trackduration'] = trackduration
-      $duration = $('.track-mejs-duration')
+      $duration = $('.track-mejs__duration')
       $duration.text(mejs.Utility.secondsToTimeCode(parseInt(trackduration), false))
 
       start_percent = Math.max(0,Math.min(100,Math.round(100*trackstart / duration)))
       end_percent = Math.max(0,Math.min(100,Math.round(100*trackend / duration)))
-      clip_span = $('<span />').addClass('mejs-time-clip')
-      trackbubble = $('<span class="mejs-time-clip">')
+      clip_span = $('<span />').addClass('mejs__time-clip')
+      trackbubble = $('<span class="mejs__time-clip">')
       trackbubble.css 'left', start_percent+'%'
       trackbubble.css 'width', end_percent-start_percent+'%'
-      $('.mejs-time-clip').remove()
+      $('.mejs__time-clip').remove()
       unless start_percent==0 and end_percent==100
-        $('.mejs-time-total').append trackbubble
+        $('.mejs__time-total').append trackbubble
       t = this
-      total = $('.track-mejs-time-total')
-      current = $('.track-mejs-time-current')
-      handle = $('.track-mejs-time-handle')
-      timefloat = $('.track-mejs-time-float')
-      timefloatcurrent = $('.track-mejs-time-float-current')
-      slider = $('.track-mejs-time-slider')
+      total = $('.track-mejs__time-total')
+      current = $('.track-mejs__time-current')
+      handle = $('.track-mejs__time-handle')
+      timefloat = $('.track-mejs__time-float')
+      timefloatcurrent = $('.track-mejs__time-float-current')
+      slider = $('.track-mejs__time-slider')
       media = t.media
       mouseIsDown = false
       mouseIsOver = false

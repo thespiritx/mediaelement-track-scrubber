@@ -1,18 +1,18 @@
-.mejs-controls .mejs-track-scrubber button{
+.mejs__controls .mejs__track-scrubber button{
   background-size: 23pt !important;
   background-position: 50% !important;
   padding: 1pt;
 }
 
-.mejs-controls .mejs-track-scrubber.track-scrubber-show button {
+.mejs__controls .mejs__track-scrubber.track-scrubber-show button {
   background: transparent url(<%= image_path 'track_scrubber_show_icon.svg' %>) no-repeat;
 }
 
-.mejs-controls .mejs-track-scrubber.track-scrubber-hide button {
+.mejs__controls .mejs__track-scrubber.track-scrubber-hide button {
   background: transparent url(<%= image_path 'track_scrubber_hide_icon.svg' %>) no-repeat;
 }
 
-.mejs-time-clip {
+.mejs__time-clip {
   background: linear-gradient(#DDD,#DDD);
   opacity: .3;
   height: 14px !important;
@@ -46,7 +46,7 @@
       font-family: Helvetica, Arial;
       border: 0;
     }
-    .mejs-time {
+    .mejs__time {
       color: #fff;
       display: block;
       height: 17px;
@@ -67,7 +67,7 @@
       }
     }
     /* Start: Progress Bar */
-    div.track-mejs-time-rail {
+    div.track-mejs__time-rail {
       direction: ltr;
       width: 80%;
       padding-top: 5px;
@@ -80,7 +80,7 @@
         border-radius: 2px;
         cursor: pointer;
       }
-      .track-mejs-time-total {
+      .track-mejs__time-total {
         margin: 5px;
         background: #333;
         background: rgba(50,50,50,0.8);
@@ -91,7 +91,7 @@
         background: -ms-linear-gradient(top, rgba(30,30,30,0.8), rgba(60,60,60,0.8));
         background: linear-gradient(rgba(30,30,30,0.8), rgba(60,60,60,0.8));
       }
-      .track-mejs-time-current {
+      .track-mejs__time-current {
         background: #fff;
         background: rgba(255,255,255,0.8);
         background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0.9)), to(rgba(200,200,200,0.8)));
@@ -102,7 +102,7 @@
         background: linear-gradient(rgba(255,255,255,0.9), rgba(200,200,200,0.8));
         width: 0;
       }
-      .track-mejs-time-handle {
+      .track-mejs__time-handle {
       	display: none;
         position: absolute;
         margin: 0;
@@ -116,7 +116,7 @@
         top: -2px;
         text-align: center;
       }
-      .track-mejs-time-float {
+      .track-mejs__time-float {
         position: absolute;
         display: none;
         background: #eee;
@@ -128,14 +128,14 @@
         text-align: center;
         color: #111;
       }
-      .track-mejs-time-float-current {
+      .track-mejs__time-float-current {
         margin: 2px;
         width: 30px;
         display: block;
         text-align: center;
         left: 0;
       }
-      .track-mejs-time-float-corner {
+      .track-mejs__time-float-corner {
         position: absolute;
         display: block;
         width: 0;
@@ -150,7 +150,7 @@
         left: 13px;
       }
     }
-    .track-mejs-time-rail:hover .track-mejs-time-handle {
+    .track-mejs__time-rail:hover .track-mejs__time-handle {
       visibility:visible;
     }
   }
