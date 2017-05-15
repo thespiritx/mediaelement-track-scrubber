@@ -28,7 +28,7 @@
       trackoffset = this.getCurrentTime() - this.trackdata['starttime']
       trackpercent = Math.min(100, Math.max(0,(100 * trackoffset / this.trackdata['trackduration'])))
       $('.track-mejs__time-current').width(Math.round(trackpercent)+'%')
-      $('.track-mejs__currenttime').text(mejs.Utility.secondsToTimeCode(trackoffset, false))
+      $('.track-mejs__currenttime').text(mejs.Utils.secondsToTimeCode(trackoffset, false))
 
     resizeTrackScrubber: ->
       timeWidth = $('.track-mejs__currenttime-container').outerWidth()
@@ -43,14 +43,14 @@
       duration = stream_info.duration
       trackduration = trackend - trackstart
       $currentTime = $('.track-mejs__currenttime')
-      $currentTime.text(mejs.Utility.secondsToTimeCode(Math.max(0,this.getCurrentTime()-trackstart), false))
+      $currentTime.text(mejs.Utils.secondsToTimeCode(Math.max(0,this.getCurrentTime()-trackstart), false))
       this.trackdata = {}
       this.trackdata['starttime'] = trackstart
       this.trackdata['endtime'] = trackend
       this.trackdata['duration'] = duration
       this.trackdata['trackduration'] = trackduration
       $duration = $('.track-mejs__duration')
-      $duration.text(mejs.Utility.secondsToTimeCode(parseInt(trackduration), false))
+      $duration.text(mejs.Utils.secondsToTimeCode(parseInt(trackduration), false))
 
       start_percent = Math.max(0,Math.min(100,Math.round(100*trackstart / duration)))
       end_percent = Math.max(0,Math.min(100,Math.round(100*trackend / duration)))
@@ -100,7 +100,7 @@
           # position floating time box
           if !mejs.MediaFeatures.hasTouch
             timefloat.css 'left', pos
-            timefloatcurrent.html mejs.Utility.secondsToTimeCode(newTime, false)
+            timefloatcurrent.html mejs.Utils.secondsToTimeCode(newTime, false)
             timefloat.show()
 
       total.bind('mousedown touchstart', (e) ->
